@@ -19,6 +19,19 @@ const HamburgerButton = () => {
           <Link href="https://github.com/brodypen" isExternal>
             <MenuItem icon={<FaGithub />}>Brody Pen</MenuItem>
           </Link>
+          <Link href="https://github.com/ChrisOh431" isExternal>
+            <MenuItem icon={<FaGithub />}>CJ Ohanaja</MenuItem>
+          </Link>
+          <Link
+            href="https://github.com/
+aadproj3570"
+            isExternal
+          >
+            <MenuItem icon={<FaGithub />}>Aadarsh Srivatsav</MenuItem>
+          </Link>
+          <Link href="https://github.com/prashanth440" isExternal>
+            <MenuItem icon={<FaGithub />}>Sai Prashanth</MenuItem>
+          </Link>
         </MenuGroup>
         <MenuGroup title="Misc" textAlign="left">
           <ColorModeSwitcher />
