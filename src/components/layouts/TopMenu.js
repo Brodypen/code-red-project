@@ -2,6 +2,7 @@ import { Button, HStack, WrapItem} from '@chakra-ui/react';
 import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react';
 import React from 'react';
 import { FaHome, FaBook, FaInfo } from 'react-icons/fa';
+import HamburgerButton from './HamburgerButton';
 
 const TopMenu = ({onClick}) => {
   return (
@@ -11,6 +12,8 @@ const TopMenu = ({onClick}) => {
           Home
         </Button>
         <Button leftIcon={<FaBook />} onClick={() => onClick('loginPage')}>Login</Button>
+        
+        <HamburgerButton/>
         <WrapItem>
           <Avatar
             size="md"

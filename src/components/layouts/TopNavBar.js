@@ -1,8 +1,7 @@
 import { Flex, Heading } from '@chakra-ui/react';
-import { useMediaQuery } from '@chakra-ui/react';
 import React from 'react';
 import TopMenu from './TopMenu';
-
+import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 const TopNavBar = ({ onClick }) => {
 
   return (
@@ -10,7 +9,7 @@ const TopNavBar = ({ onClick }) => {
       <Heading style={{ whiteSpace: 'nowrap' }} fontSize="4xl">
         A Ecommerce website
       </Heading>
-        <TopMenu onClick={onClick}/>
+      <TopMenu onClick={onClick} />
     </Flex>
   );
 };
