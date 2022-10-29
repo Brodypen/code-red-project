@@ -1,11 +1,6 @@
 import React from 'react'
 import {
-  ChakraProvider,
-  Box,
   VStack,
-  Grid,
-  theme,
-  Text,
   Heading,
 } from '@chakra-ui/react'
 const AccountPage = () => {

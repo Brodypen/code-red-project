@@ -1,7 +1,7 @@
 import { Button, HStack, WrapItem} from '@chakra-ui/react';
-import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react';
+import { Avatar} from '@chakra-ui/react';
 import React from 'react';
-import { FaHome, FaBook, FaInfo } from 'react-icons/fa';
+import { FaHome, FaBook} from 'react-icons/fa';
 import HamburgerButton from './HamburgerButton';
 
 const TopMenu = ({onClick}) => {

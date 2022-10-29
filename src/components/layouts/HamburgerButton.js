@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   IconButton,
   Menu,
@@ -9,24 +9,23 @@ import {
   Link,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
-import { FaBars, FaHome, FaBook, FaInfo, FaGithub } from 'react-icons/fa';
+import { FaBars, FaGithub } from 'react-icons/fa';
 const HamburgerButton = () => {
   return (
     <Menu isLazy>
       <MenuButton as={IconButton} icon={<FaBars />} />
       <MenuList>
+        <MenuGroup title="Github" textAlign="left">
+          <Link href="https://github.com/brodypen" isExternal>
+            <MenuItem icon={<FaGithub />}>Brody Pen</MenuItem>
+          </Link>
+        </MenuGroup>
         <MenuGroup title="Misc" textAlign="left">
           <ColorModeSwitcher />
-          <Link
-            href="https://github.com/FrostandIce/restaurant-page"
-            isExternal
-          >
-            <MenuItem icon={<FaGithub />}>GitHub</MenuItem>
-          </Link>
         </MenuGroup>
       </MenuList>
     </Menu>
   );
-}
+};
 
-export default HamburgerButton
+export default HamburgerButton;

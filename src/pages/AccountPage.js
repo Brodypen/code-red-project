@@ -1,5 +1,5 @@
 import React from 'react'
-import {ChakraProvider, Box,VStack,Grid,theme,Text,} from '@chakra-ui/react'
+import {ChakraProvider, theme} from '@chakra-ui/react'
 
 const AccountPage = () => {
   return (

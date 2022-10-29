@@ -2,13 +2,10 @@ import React from 'react';
 import {
   ChakraProvider,
   Box,
-  VStack,
-  Grid,
   Flex,
   Collapse,
   theme,
   useBoolean,
-  Text,
 } from '@chakra-ui/react';
 import Home from './components/pages/Home';
 import TopNavBar from './components/layouts/TopNavBar';
@@ -39,18 +36,8 @@ function App() {
         <Home />
       </Collapse>
       <Collapse in={loginPage} animateOpacity unmountOnExit>
-        <Text>Hey</Text>
         <AccountPage />
       </Collapse>
-      <Text>Test</Text>
-      {/* <Collapse in={menu} animateOpacity unmountOnExit>
-        <Menu />
-      </Collapse>
-      <Collapse in={contact} animateOpacity unmountOnExit>
-        <Contact />
-      </Collapse> */}
-      {/* {menu ? <Menu /> : <></>}
-      {contact ? <Contact /> : <></>} */}
       <Box height="3vh" width="auto" />
     </ChakraProvider>
   );
