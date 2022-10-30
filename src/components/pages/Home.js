@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   VStack,
   Flex,
@@ -6,8 +6,24 @@ import {
   Heading,
   Text,
   Box,
+  Input,
 } from '@chakra-ui/react';
+
+const loadRedditFetch = () => {
+  return fetch('localhost:3000')
+    .then(response => response.json())
+    .then(response => {
+      return {
+        text: String,
+        sent: Number,
+      };
+    })
+    .catch(err => console.error(err));
+};
 const MainPage = () => {
+  const [value, setValue] = React.useState('')
+  const handleChange = (event) => setValue(event.target.value)
+
   return (
     <Flex direction="column" justify="center" padding={5}>
       <VStack>
@@ -23,8 +39,11 @@ const MainPage = () => {
           </Box>
         </VStack>
       </HStack>
+      <VStack paddingLeft={20} paddingRight={20}>
+        <Input placeholder="Basic usage" size="lg"/>
+      </VStack>
     </Flex>
   );
-}
+};
 
-export default MainPage
+export default MainPage;
