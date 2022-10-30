@@ -7,6 +7,15 @@ import {
   Text,
   Box,
   Input,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
 } from '@chakra-ui/react';
 
 const loadRedditFetch = () => {
@@ -20,27 +29,50 @@ const loadRedditFetch = () => {
     })
     .catch(err => console.error(err));
 };
+
+function NumberPrompt() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  return (
+    <>
+      <Button onClick={onOpen}>See the Magic Number </Button>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>{/* <Lorem count={2} /> */}</ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant="ghost">Secondary Action</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+}
+
 const MainPage = () => {
-  const [value, setValue] = React.useState('')
-  const handleChange = (event) => setValue(event.target.value)
+  const [value, setValue] = React.useState('');
+  const handleChange = event => setValue(event.target.value);
 
   return (
-    <Flex direction="column" justify="center" padding={5}>
-      <VStack>
-        <Heading>Home</Heading>
+    <Flex direction="column" justify="center" padding={9}>
+      <VStack
+        paddingTop={16}
+        paddingLeft={20}
+        paddingRight={20}
+        paddingBottom={8}
+      >
+        <Text fontSize="4xl">Wanna buy something?</Text>
+        <Text fontSize="4xl">See what people think first.</Text>
       </VStack>
-      <HStack paddingTop={5} paddingLeft={20} paddingRight={20}>
-        <VStack>
-          <Box>
-            <Text fontSize="4xl">Wish you know?</Text>
-            <Text fontSize="4xl">Get it here!</Text>
-            <Text fontSize="4xl">Search it now</Text>
-            <Text fontSize="xl">Search it now</Text>
-          </Box>
-        </VStack>
-      </HStack>
       <VStack paddingLeft={20} paddingRight={20}>
-        <Input placeholder="Basic usage" size="lg"/>
+        <Input placeholder="Basic usage" size="lg" marginBottom={8} />
+        <NumberPrompt />
       </VStack>
     </Flex>
   );
