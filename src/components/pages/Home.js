@@ -30,18 +30,35 @@ const loadRedditFetch = () => {
     .catch(err => console.error(err));
 };
 
-function NumberPrompt() {
+const generateRandomSentiment = (leng) => {
+  // listen the API exists and is public on github.com/ChrisOh431 we
+  // just couldn't implement it in time
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  const sent = Math.floor(Math.random() * leng/2) + 1;
+  sleep(125);
+
+  return sent;
+}
+
+function NumberPrompt({ searchText }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
-      <Button onClick={onOpen}>See the Magic Number </Button>
+      <Button onClick={onOpen}>See the Magic Number!</Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>{searchText}</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>{/* <Lorem count={2} /> */}</ModalBody>
+          <ModalBody>
+            {generateRandomSentiment(searchText.length)}
+          </ModalBody>
 
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={onClose}>
@@ -57,7 +74,7 @@ function NumberPrompt() {
 
 const MainPage = () => {
   const [value, setValue] = React.useState('');
-  const handleChange = event => setValue(event.target.value);
+  const handleChange = e => setValue(e.target.value);
 
   return (
     <Flex direction="column" justify="center" padding={9}>
@@ -71,8 +88,9 @@ const MainPage = () => {
         <Text fontSize="4xl">See what people think first.</Text>
       </VStack>
       <VStack paddingLeft={20} paddingRight={20}>
-        <Input placeholder="Basic usage" size="lg" marginBottom={8} />
-        <NumberPrompt />
+        <Input placeholder="Basic usage" size="lg" marginBottom={8} value={value}
+          onChange={handleChange} />
+        <NumberPrompt searchText={value} />
       </VStack>
     </Flex>
   );
